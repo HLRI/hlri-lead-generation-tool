@@ -9,7 +9,7 @@
                     class="far fa-list-alt"></i><span class="hide-menu">Form Services
                 </span></a>
         </li>
-        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-chat.html" aria-expanded="false"><i
+        {{-- <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-chat.html" aria-expanded="false"><i
                     data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Chat</span></a></li>
         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-calendar.html" aria-expanded="false"><i
                     data-feather="calendar" class="feather-icon"></i><span class="hide-menu">Calendar</span></a></li>
@@ -42,6 +42,6 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>
-        </li>
+        </li> --}}
     </ul>
 </nav>
