@@ -1,12 +1,12 @@
 <nav class="sidebar-nav">
     <ul id="sidebarnav">
-        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="index.html" aria-expanded="false"><i
+        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('panel') }}" aria-expanded="false"><i
                     data-feather="home" class="feather-icon"></i><span class="hide-menu">Dashboard</span></a></li>
         <li class="list-divider"></li>
         <li class="nav-small-cap"><span class="hide-menu">Applications</span></li>
 
-        <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('form-tools.index') }}" aria-expanded="false"><i
-                    class="far fa-list-alt"></i><span class="hide-menu">Form Services
+        <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('form-tools.index') }}"
+                aria-expanded="false"><i class="far fa-list-alt"></i><span class="hide-menu">Form Services
                 </span></a>
         </li>
         {{-- <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-chat.html" aria-expanded="false"><i
