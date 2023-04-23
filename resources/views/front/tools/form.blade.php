@@ -1,6 +1,5 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
 <style>
     .phone {
         animation: pulse 1s infinite
@@ -35,7 +34,7 @@
 
 
     .pulsating-circle::before {
-        content: '';
+        content: "";
         position: absolute;
         display: block;
         width: 140px;
@@ -56,6 +55,26 @@
             opacity: 0;
         }
     }
+
+    .error {
+        background: #ffdada;
+        color: red;
+        padding: 4px 8px;
+        margin: 4px 0;
+        border-radius: 6px;
+        font-size: 12px;
+    }
+
+    .success {
+        background: #6dff71;
+        color: rgb(22 78 34);
+        padding: 4px 8px;
+        margin: 4px 0;
+        border-radius: 6px;
+        font-size: 14px;
+        text-align: justify;
+        line-height: 1.7;
+    }
 </style>
 
 <div style="display: none; justify-content: center;align-items: center;height: 100vh; width: 100%;position: absolute; z-index: 999;background: #ccc; opacity: .8;"
@@ -63,8 +82,8 @@
     <div
         style="width: 30%; height: auto;background: white;box-shadow: 0px 0px 10px 6px #bfbfbf; border-radius: 6px; opacity: 1;">
         <div style="display: flex; justify-content: end; padding: 10px 0;width: 100%;">
-            <svg style="cursor: pointer" onclick="document.getElementById('form-popup').style.display = 'none'"
-                width="20px" height="20px" viewPort="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <svg style="cursor: pointer" onclick="document.getElementById("form-popup").style.display="none"" width="20px"
+                height="20px" viewPort="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <line x1="1" y1="11" x2="11" y2="1" stroke="black" stroke-width="2" />
                 <line x1="1" y1="1" x2="11" y2="11" stroke="black" stroke-width="2" />
             </svg>
@@ -74,16 +93,17 @@
             style="padding: 10px 20px;display: flex;align-items: center;justify-content: center;flex-direction: column">
             <input
                 style="width: 100%; border: none; background: #eee; padding: 10px; border-radius: 6px; outline: none; margin-bottom: 8px;"
-                type="text" placeholder="Name">
+                type="text" placeholder="Name" id="name">
             <input
                 style="width: 100%; border: none; background: #eee; padding: 10px; border-radius: 6px; outline: none; margin-bottom: 8px;"
-                type="email" placeholder="Email">
+                type="email" placeholder="Email" id="email">
             <input
                 style="width: 100%; border: none; background: #eee; padding: 10px; border-radius: 6px; outline: none; margin-bottom: 8px;"
-                type="tel" placeholder="Phone">
+                type="tel" placeholder="Phone" id="phone">
             <button id="register-btn" type="button"
                 style="margin:10px 0;cursor: pointer; border: none;border-radius: 10px;padding: 10px 20px;background: rgb(198, 255, 198);color: rgb(22, 156, 62)">Request
                 a call back</button>
+            <div style="width:100%" id="errors"></div>
         </div>
     </div>
 </div>
@@ -108,7 +128,7 @@
 </div>
 <script>
     function form_popup_toggle() {
-        var x = document.getElementById('form-popup');
+        var x = document.getElementById("form-popup");
         if (x.style.display === "none") {
             x.style.display = "flex";
         } else {
@@ -116,20 +136,46 @@
         }
     };
 
-    $('#register-btn').click(function() {
+    $("#register-btn").click(function() {
+        $('#errors').html('Processing ...');
+        var url = window.location.href;
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+
         $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': "{{ csrf_token() }}"
-            },
-            url: "{{ route('my-api') }}",
+            url: "{{ route('save-info') }}",
             data: {
-                'name': 'ali',
-                'email': 'ali@gmail.com',
-                'phone': '09125759857',
+                "url": url,
+                "token": "{{ $token }}",
+                "name": name,
+                "email": email,
+                "phone": phone,
             },
-            type: 'POST',
+            type: "GET",
             success: function(result) {
-                console.log( result );
+                $('#errors').html('');
+
+                if (result.error) {
+                    $.each(result.error, function(i, err) {
+                        $('<div>', {
+                            class: 'error',
+                        }).appendTo('#errors').text(err);
+                    });
+                } else {
+                    if (result.status == 'SUCCESS') {
+                        $('<div>', {
+                            class: 'success',
+                        }).appendTo('#errors').text(
+                            'Your information has been successfully registered, we will contact you in 10 seconds.'
+                        );
+                        $('#name').val('');
+                        $('#email').val('');
+                        $('#phone').val('');
+                    }
+                }
+
+
             }
         });
     });
