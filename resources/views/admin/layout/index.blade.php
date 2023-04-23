@@ -7,12 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets') }}/images/favicon.png">
     <title>Freedash Template - The Ultimate Multipurpose admin template</title>
     <link href="{{ asset('assets') }}/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link href="{{ asset('assets') }}/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <link href="{{ asset('assets') }}/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
     <link href="{{ asset('dist') }}/css/style.min.css" rel="stylesheet">
+    @yield('css')
+    <link href="{{ asset('css/my-style.css') }}" rel="stylesheet">
 
 </head>
 
@@ -59,10 +62,12 @@
     <script src="{{ asset('assets') }}/extra-libs/c3/d3.min.js"></script>
     <script src="{{ asset('assets') }}/extra-libs/c3/c3.min.js"></script>
     <script src="{{ asset('assets') }}/libs/chartist/dist/chartist.min.js"></script>
-    <script src="{{ asset('assets') }}/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="{{ asset('assets') }}/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
-    <script src="{{ asset('assets') }}/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="{{ asset('dist') }}/js/pages/dashboards/dashboard1.min.js"></script>
+    {{-- <script src="{{ asset('assets') }}/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script> --}}
+    {{-- <script src="{{ asset('assets') }}/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script> --}}
+    {{-- <script src="{{ asset('assets') }}/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script> --}}
+    {{-- <script src="{{ asset('dist') }}/js/pages/dashboards/dashboard1.min.js"></script> --}}
+    @yield('js')
+    <script src="{{ asset('js/ajax.js') }}"></script>
 </body>
 
 </html>
