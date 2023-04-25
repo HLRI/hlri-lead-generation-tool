@@ -35,7 +35,7 @@ class InfoController extends Controller
                 if (!empty($existsInfo)) {
                     if ($existsInfo->email == $request->email or $existsInfo->phone == $request->phone) {
                         return response()->json([
-                            'errors' => ['Your information has been registered']
+                            'error' => ['Your information has been registered']
                         ]);
                     }
                 }
