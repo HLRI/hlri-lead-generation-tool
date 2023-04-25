@@ -42,7 +42,7 @@
                                     <tr>
                                         <th scope="row">{{ $site->id }}</th>
                                         <td>{{ $site->name }}</td>
-                                        <td>{{ $site->url }}</td>
+                                        <td><a target="_blank" href="http://{{ $site->url }}">{{ $site->url }} <i class=" fas fa-external-link-alt"></i></a></td>
                                         <td>{{ $site->created_at }}</td>
                                         <td>
                                             <div class="d-flex flex-column align-items-start">
