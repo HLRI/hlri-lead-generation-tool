@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets') }}/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets') }}/images/fav.png">
     <title>Freedash Template - The Ultimate Multipurpose admin template</title>
     <link href="{{ asset('assets') }}/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link href="{{ asset('assets') }}/libs/chartist/dist/chartist.min.css" rel="stylesheet">
