@@ -11,7 +11,7 @@ class FormToolsController extends Controller
 {
     public function index()
     {
-        $sites = Site::orderby('id', 'asc')->get();
+        $sites = Site::orderby('id', 'DESC')->get();
         return view('admin.form-tools.index', compact(['sites']));
     }
 
@@ -23,7 +23,7 @@ class FormToolsController extends Controller
     public function show(Request $request)
     {
         $site = Site::where('token', $request->token)->first();
-        $infos = Info::where('site_token', $request->token)->orderby('id', 'asc')->get();
+        $infos = Info::where('site_token', $request->token)->orderby('id', 'DESC')->get();
         return view('admin.form-tools.show', compact(['infos', 'site']));
     }
 
