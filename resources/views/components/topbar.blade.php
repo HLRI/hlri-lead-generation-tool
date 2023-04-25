@@ -15,7 +15,7 @@
         </div>
         <div class="navbar-collapse collapse" id="navbarSupportedContent">
             <ul class="navbar-nav float-left me-auto ms-3 ps-1">
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle pl-md-3 position-relative" href="javascript:void(0)"
                         id="bell" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
@@ -82,7 +82,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -95,7 +95,7 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
-                <li class="nav-item d-none d-md-block">
+                {{-- <li class="nav-item d-none d-md-block">
                     <a class="nav-link" href="javascript:void(0)">
                         <div class="customize-input">
                             <select class="custom-select form-control bg-white custom-radius custom-shadow border-0">
@@ -106,10 +106,10 @@
                             </select>
                         </div>
                     </a>
-                </li>
+                </li> --}}
             </ul>
             <ul class="navbar-nav float-end">
-                <li class="nav-item d-none d-md-block">
+                {{-- <li class="nav-item d-none d-md-block">
                     <a class="nav-link" href="javascript:void(0)">
                         <form>
                             <div class="customize-input">
@@ -119,17 +119,16 @@
                             </div>
                         </form>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <img src="{{ asset('assets') }}/images/users/profile-pic.jpg" alt="user"
+                        <img src="{{ asset('assets') }}/images/fav.png" alt="user"
                             class="rounded-circle" width="40">
-                        <span class="ms-2 d-none d-lg-inline-block"><span>Hello,</span> <span class="text-dark">Jason
-                                Doe</span> <i data-feather="chevron-down" class="svg-icon"></i></span>
+                        <span class="ms-2 d-none d-lg-inline-block"><span>Hello,</span> <span class="text-dark">{{auth()->user()->name}}</span> <i data-feather="chevron-down" class="svg-icon"></i></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-right user-dd animated flipInY">
-                        <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
+                        {{-- <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
                                 class="svg-icon me-2 ms-1"></i>
                             My Profile</a>
                         <a class="dropdown-item" href="javascript:void(0)"><i data-feather="credit-card"
@@ -142,7 +141,7 @@
                         <a class="dropdown-item" href="javascript:void(0)"><i data-feather="settings"
                                 class="svg-icon me-2 ms-1"></i>
                             Account Setting</a>
-                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-divider"></div> --}}
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
                                 data-feather="power" class="svg-icon me-2 ms-1"></i>
@@ -150,9 +149,9 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                        <div class="dropdown-divider"></div>
+                        {{-- <div class="dropdown-divider"></div>
                         <div class="pl-4 p-3"><a href="javascript:void(0)" class="btn btn-sm btn-info">View
-                                Profile</a></div>
+                                Profile</a></div> --}}
                     </div>
                 </li>
             </ul>
