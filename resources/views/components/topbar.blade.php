@@ -5,7 +5,7 @@
                     class="ti-menu ti-close"></i></a>
             <div class="navbar-brand">
                 <a href="index.html">
-                    <img src="{{ asset('assets') }}/images/freedashDark.svg" alt="" class="img-fluid">
+                    <img src="{{ asset('assets') }}/images/logo.png" alt="" class="img-fluid">
                 </a>
             </div>
             <a class="topbartoggler d-block d-lg-none waves-effect waves-light" href="javascript:void(0)"
