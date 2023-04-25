@@ -48,7 +48,7 @@
                                             <div class="d-flex flex-column align-items-start">
                                                 <a href="{{ route('form-tools.show', ['token' => $site->token]) }}">View
                                                     Info</a>
-                                                <a href="{{ route('form-tools.code', ['token' => $site->token]) }}">Tracking Code</a>
+                                                <a class="text-success" href="{{ route('form-tools.code', ['token' => $site->token]) }}">Tracking Code</a>
                                             </div>
                                         </td>
                                     </tr>
