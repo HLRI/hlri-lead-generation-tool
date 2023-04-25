@@ -44,7 +44,13 @@
                                         <td>{{ $site->name }}</td>
                                         <td>{{ $site->url }}</td>
                                         <td>{{ $site->created_at }}</td>
-                                        <td><a href="{{ $site->id }}">View Info</a></td>
+                                        <td>
+                                            <div class="d-flex flex-column align-items-start">
+                                                <a href="{{ route('form-tools.show', ['token' => $site->token]) }}">View
+                                                    Info</a>
+                                                <a href="{{ route('form-tools.code', ['token' => $site->token]) }}">Tracking Code</a>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -32,10 +32,12 @@ class InfoController extends Controller
         if (!empty($is_token)) {
             if ($is_token->url == $url) {
                 $existsInfo = Info::where('site_token', $request->token)->first();
-                if ($existsInfo->email == $request->email or $existsInfo->phone == $request->phone) {
-                    return response()->json([
-                        'status' => 'EXISTSINFO'
-                    ]);
+                if (!empty($existsInfo)) {
+                    if ($existsInfo->email == $request->email or $existsInfo->phone == $request->phone) {
+                        return response()->json([
+                            'status' => 'EXISTSINFO'
+                        ]);
+                    }
                 }
                 $info = new Info();
                 $info->name = $request->name;
