@@ -50,12 +50,12 @@ class InfoController extends Controller
                 ]);
             } else {
                 return response()->json([
-                    'status' => 'URLNOK'
+                    'error' => ['Your site is not authorized to access']
                 ]);
             }
         } else {
             return response()->json([
-                'status' => 'TOKENNOK'
+                'error' => ['The token is not valid']
             ]);
         }
     }
