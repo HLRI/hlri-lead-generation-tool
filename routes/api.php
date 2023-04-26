@@ -14,4 +14,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['prefix'=>'v1'], function(){
     Route::get('/save-info', [InfoController::class, 'store'])->name('save-info');
+    Route::get('/crm-info', [InfoController::class, 'crm'])->name('crm-info');
 });

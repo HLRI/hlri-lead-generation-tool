@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Info;
 use App\Models\Site;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 
 class InfoController extends Controller
@@ -15,9 +16,9 @@ class InfoController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:50',
-            'email' => 'required|email',
-            'phone' => 'required|numeric',
+            'hlri_name' => 'required|max:50',
+            'hlri_email' => 'required|email',
+            'hlri_phone' => 'required|numeric',
         ]);
 
         if ($validator->fails()) {
@@ -58,5 +59,21 @@ class InfoController extends Controller
                 'error' => ['The token is not valid']
             ]);
         }
+    }
+
+    public function crm(Request $request)
+    {
+        $ch = 'https://hlrihub.com/api/v1/lead-call';
+        $body = array(
+            "name" => $request->name,
+            "email" => $request->email,
+            "phone" => $request->phone,
+            "page" => $request->url
+        );
+        $head = [
+            'Authorization' => 'Bearer ' . $request->token,
+            'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
+        ];
+        $response = Http::withHeaders($head)->post($ch, $body);
     }
 }
