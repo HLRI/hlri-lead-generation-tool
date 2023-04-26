@@ -71,7 +71,7 @@ class InfoController extends Controller
             "page" => $request->url
         );
         $head = [
-            'Authorization' => 'Bearer ' . $request->token,
+            'Authorization' => 'Bearer ' . '182|wX02FCJ4XcSKbL5NntSi8pDFMs3t6h9bTEuum0sP',
             'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
         ];
         $response = Http::withHeaders($head)->post($ch, $body);
