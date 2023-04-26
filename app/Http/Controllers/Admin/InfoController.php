@@ -18,7 +18,7 @@ class InfoController extends Controller
         $validator = Validator::make($request->all(), [
             'hlri_name' => 'required|max:50',
             'hlri_email' => 'required|email',
-            'hlri_phone' => 'required|numeric',
+            'hlri_phone' => 'required',
         ]);
 
         if ($validator->fails()) {
