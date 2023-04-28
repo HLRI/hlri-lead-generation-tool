@@ -30,7 +30,7 @@ class FormToolsAjaxController extends Controller
         $site->token = $token;
         $site->save();
 
-        $url = URL::to('form-tools') .'/'. $token;
+        $url = URL::to('form-tools') . '/' . $token;
 
         return response()->json([
             "status" => "SUCCESS",
@@ -41,5 +41,12 @@ class FormToolsAjaxController extends Controller
     public function unique_code($limit)
     {
         return substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, $limit);
+    }
+
+    public function dataset()
+    {
+        $path = public_path('dataset/data.json');
+        $json = json_decode(file_get_contents($path), true);
+        return $json;
     }
 }

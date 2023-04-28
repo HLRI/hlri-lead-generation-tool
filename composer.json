@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.2",
         "paragonie/constant_time_encoding": "^2.6",
+        "sarfraznawaz2005/laravel-sse": "^2.2",
         "spatie/laravel-permission": "^5.10"
     },
     "require-dev": {

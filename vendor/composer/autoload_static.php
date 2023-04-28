@@ -33,6 +33,7 @@ class ComposerStaticInit8f48849a9dbd6c178cdb64132b249132
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'a1cfe24d14977df6878b9bf804af2d1c' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Phpunit/Autoload.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
+        '0c59052f0b04ea3aac2244eef54731e1' => __DIR__ . '/..' . '/sarfraznawaz2005/laravel-sse/src/Helpers/helper.php',
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
         '377b22b161c09ed6e5152de788ca020a' => __DIR__ . '/..' . '/spatie/laravel-permission/src/helpers.php',
     );
@@ -87,6 +88,7 @@ class ComposerStaticInit8f48849a9dbd6c178cdb64132b249132
             'Spatie\\Ignition\\' => 16,
             'Spatie\\FlareClient\\' => 19,
             'Spatie\\Backtrace\\' => 17,
+            'Sarfraznawaz2005\\SSE\\' => 21,
         ),
         'R' => 
         array (
@@ -327,6 +329,10 @@ class ComposerStaticInit8f48849a9dbd6c178cdb64132b249132
         'Spatie\\Backtrace\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/backtrace/src',
+        ),
+        'Sarfraznawaz2005\\SSE\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sarfraznawaz2005/laravel-sse/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -5014,6 +5020,11 @@ class ComposerStaticInit8f48849a9dbd6c178cdb64132b249132
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
         'Ramsey\\Uuid\\Validator\\GenericValidator' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/GenericValidator.php',
         'Ramsey\\Uuid\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
+        'Sarfraznawaz2005\\SSE\\Facades\\SSEFacade' => __DIR__ . '/..' . '/sarfraznawaz2005/laravel-sse/src/Facades/SSEFacade.php',
+        'Sarfraznawaz2005\\SSE\\Http\\Controllers\\SSEController' => __DIR__ . '/..' . '/sarfraznawaz2005/laravel-sse/src/Http/Controllers/SSEController.php',
+        'Sarfraznawaz2005\\SSE\\Models\\SSELog' => __DIR__ . '/..' . '/sarfraznawaz2005/laravel-sse/src/Models/SSELog.php',
+        'Sarfraznawaz2005\\SSE\\SSE' => __DIR__ . '/..' . '/sarfraznawaz2005/laravel-sse/src/SSE.php',
+        'Sarfraznawaz2005\\SSE\\ServiceProvider' => __DIR__ . '/..' . '/sarfraznawaz2005/laravel-sse/src/ServiceProvider.php',
         'SebastianBergmann\\CliParser\\AmbiguousOptionException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/AmbiguousOptionException.php',
         'SebastianBergmann\\CliParser\\Exception' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/Exception.php',
         'SebastianBergmann\\CliParser\\OptionDoesNotAllowArgumentException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/OptionDoesNotAllowArgumentException.php',

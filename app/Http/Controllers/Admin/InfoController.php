@@ -77,3 +77,4 @@ class InfoController extends Controller
         $response = Http::withHeaders($head)->post($ch, $body);
     }
 }
+

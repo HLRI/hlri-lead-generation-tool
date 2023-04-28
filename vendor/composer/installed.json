@@ -1271,17 +1271,17 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.8.0",
-            "version_normalized": "10.8.0.0",
+            "version": "v10.9.0",
+            "version_normalized": "10.9.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "317d7ccaeb1bbf4ac3035efe225ef2746c45f3a8"
+                "reference": "35078125f61ef0b125edf524de934f108d4b47fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/317d7ccaeb1bbf4ac3035efe225ef2746c45f3a8",
-                "reference": "317d7ccaeb1bbf4ac3035efe225ef2746c45f3a8",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/35078125f61ef0b125edf524de934f108d4b47fd",
+                "reference": "35078125f61ef0b125edf524de934f108d4b47fd",
                 "shasum": ""
             },
             "require": {
@@ -1426,7 +1426,7 @@
                 "symfony/postmark-mailer": "Required to enable support for the Postmark mail transport (^6.2).",
                 "symfony/psr-http-message-bridge": "Required to use PSR-7 bridging features (^2.0)."
             },
-            "time": "2023-04-18T13:45:33+00:00",
+            "time": "2023-04-25T13:47:18+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -3894,27 +3894,27 @@
         },
         {
             "name": "psr/http-message",
-            "version": "2.0",
-            "version_normalized": "2.0.0.0",
+            "version": "1.1",
+            "version_normalized": "1.1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
-                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71"
+                "reference": "cb6ce4845ce34a8ad9e68117c10ee90a29919eba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/402d35bcb92c70c026d1a6a9883f06b2ead23d71",
-                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/cb6ce4845ce34a8ad9e68117c10ee90a29919eba",
+                "reference": "cb6ce4845ce34a8ad9e68117c10ee90a29919eba",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.2 || ^8.0"
             },
-            "time": "2023-04-04T09:54:51+00:00",
+            "time": "2023-04-04T09:50:52+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "installation-source": "dist",
@@ -3930,7 +3930,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
+                    "homepage": "http://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for HTTP messages",
@@ -3944,7 +3944,7 @@
                 "response"
             ],
             "support": {
-                "source": "https://github.com/php-fig/http-message/tree/2.0"
+                "source": "https://github.com/php-fig/http-message/tree/1.1"
             },
             "install-path": "../psr/http-message"
         },
@@ -4367,6 +4367,75 @@
                 }
             ],
             "install-path": "../ramsey/uuid"
+        },
+        {
+            "name": "sarfraznawaz2005/laravel-sse",
+            "version": "2.2.0",
+            "version_normalized": "2.2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sarfraznawaz2005/laravel-sse.git",
+                "reference": "c38100d27e52d04275f7fa62797547a41012030b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sarfraznawaz2005/laravel-sse/zipball/c38100d27e52d04275f7fa62797547a41012030b",
+                "reference": "c38100d27e52d04275f7fa62797547a41012030b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5|~6|~7|~8|~9|~10",
+                "php": "^7.0|^8.0"
+            },
+            "time": "2023-02-19T05:30:23+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Sarfraznawaz2005\\SSE\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "SSE": "Sarfraznawaz2005\\SSE\\Facades\\SSEFacade"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/Helpers/helper.php"
+                ],
+                "psr-4": {
+                    "Sarfraznawaz2005\\SSE\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sarfraz Ahmed",
+                    "email": "sarfraznawaz2005@gmail.com",
+                    "homepage": "http://codeinphp.github.io"
+                }
+            ],
+            "description": "Laravel package to provide Server Sent Events functionality for your app.",
+            "homepage": "https://github.com/sarfraznawaz2005/laravel-sse",
+            "keywords": [
+                "Sever Sent Events",
+                "event",
+                "laravel",
+                "notifications",
+                "polling",
+                "realtime",
+                "server",
+                "sse"
+            ],
+            "support": {
+                "issues": "https://github.com/sarfraznawaz2005/laravel-sse/issues",
+                "source": "https://github.com/sarfraznawaz2005/laravel-sse/tree/2.2.0"
+            },
+            "install-path": "../sarfraznawaz2005/laravel-sse"
         },
         {
             "name": "sebastian/cli-parser",

@@ -4,7 +4,8 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-7 align-self-center">
-                <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Information received from <span class="badge py-2 px-3 rounded-pill text-bg-primary">{{$site->url}}</span> site</h3>
+                <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Information received from <span
+                        class="badge py-2 px-3 rounded-pill text-bg-primary">{{ $site->url }}</span> site</h3>
             </div>
 
         </div>
@@ -42,3 +43,18 @@
         </div>
     </div>
 @endsection
+
+{{-- <script type="text/javascript">
+    window.onload = function() {
+
+        if (typeof(EventSource) !== "undefined") {
+            var source = new EventSource('{{ route("form-tools.livedata") }}');
+            source.onmessage = function(event) {
+                console.log(JSON.parse(event.data));
+            };
+        } else {
+            console.log('no');
+        }
+
+    };
+</script> --}}

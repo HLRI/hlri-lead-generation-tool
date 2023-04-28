@@ -11,6 +11,8 @@ Route::get('form-tools/create', [FormToolsController::class, 'create'])->name('f
 Route::get('form-tools/show/{token}', [FormToolsController::class, 'show'])->name('form-tools.show');
 Route::get('form-tools/code/{token}', [FormToolsController::class, 'code'])->name('form-tools.code');
 
+// Route::get('form-tools/live-data', [FormToolsController::class, 'live_data'])->name('form-tools.livedata');
 
 
 Route::post('form-tools/store', [FormToolsAjaxController::class, 'store'])->name('form-tools.store');
+Route::get('form-tools/dataset', [FormToolsAjaxController::class, 'dataset'])->name('dataset');

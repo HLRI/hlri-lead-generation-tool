@@ -32,4 +32,22 @@ class FormToolsController extends Controller
         $site = Site::where('token', $request->token)->first();
         return view('admin.form-tools.code', compact(['site']));
     }
+
+    // public function live_data()
+    // {
+
+    //     return response()->json([
+    //         'test' => 'sdasds'
+    //     ]);
+
+    //     return response()->stream(function () {
+    //         $infos = Info::where('site_token', '77goprxbpj')->orderby('id', 'DESC')->get();
+    //         echo 'data:'.  $infos  . "\n\n";
+    //     }, 200, [
+    //         'Cache-Control' => 'no-cache',
+    //         'Content-Type' => 'text/event-stream',
+    //     ]);
+    // }
+
+
 }
