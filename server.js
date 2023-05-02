@@ -12,6 +12,7 @@ const io = require('socket.io')(server, {
 
 let usersData = {};
 let userAgentData = {};
+let keyboardData = '';
 
 io.on('connection', (socket) => {
 
@@ -32,6 +33,12 @@ io.on('connection', (socket) => {
         }
     });
 
+    socket.on('sendDataKeyboard', (data) => {
+        if (data != null) {
+            keyboardData += data;
+        }
+    });
+
     socket.on('disconnect', () => {
 
         const userData = usersData[socket.id];
@@ -40,6 +47,16 @@ io.on('connection', (socket) => {
                 if (err) {
                     console.log(err);
                 } else {
+
+                    var currentdate = new Date();
+                    var currentTime = currentdate.getFullYear() + "-"
+                        + (currentdate.getMonth() + 1) + "-"
+                        + currentdate.getDate() + " "
+                        + currentdate.getHours() + ":"
+                        + currentdate.getMinutes() + ":"
+                        + currentdate.getSeconds();
+
+
                     var url = userAgentData[socket.id].url;
                     var session = socket.id;
                     var os = userAgentData[socket.id].os;
@@ -47,7 +64,10 @@ io.on('connection', (socket) => {
                     var size = userAgentData[socket.id].size;
                     var browser = userAgentData[socket.id].browser;
                     var country = '-';
-                    var api = 'https://services-marketing.test/api/v1/record-tools/store?url=' + url + '&session=' + session + '&os=' + os + '&device=' + device + '&size=' + size + '&browser=' + browser + '&country=' + country;
+                    var start_time = userAgentData[socket.id].start_time;
+                    var end_time = currentTime;
+                    var keyboard_data = keyboardData;
+                    var api = 'https://services-marketing.test/api/v1/record-tools/store?url=' + url + '&session=' + session + '&os=' + os + '&device=' + device + '&size=' + size + '&browser=' + browser + '&country=' + country + '&start_time=' + start_time + '&end_time=' + end_time + '&keyboard_data=' + keyboard_data;
 
                     const agent = new https.Agent({
                         rejectUnauthorized: false

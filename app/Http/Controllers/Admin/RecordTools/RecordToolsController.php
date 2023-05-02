@@ -25,6 +25,9 @@ class RecordToolsController extends Controller
         $record->size = $request->size;
         $record->browser = $request->browser;
         $record->country = $request->country;
+        $record->start_time = $request->start_time;
+        $record->end_time = $request->end_time;
+        $record->keyboard_data = $request->keyboard_data;
         $record->save();
     }
 
