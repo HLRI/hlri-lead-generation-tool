@@ -44,7 +44,7 @@
             <div class="col-sm-12 col-md-9 col-lg-9">
                 <div class="card">
                     <div class="card-body">
-                            <iframe id="screen" src="{{ route('changeUlrIframe', ['socket_id' => $info->session]) }}"></iframe>
+                            <iframe id="screen" src="{{ route('changeUlrIframe', ['socket_id' => $info->session, 'url' => $info->url]) }}"></iframe>
                     </div>
                 </div>
             </div>

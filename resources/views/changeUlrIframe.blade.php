@@ -124,18 +124,17 @@
 
 
 <?php
-$url = 'http://projects-test.test/';
+$url_target = 'http://' . $url;
 $opts = [
     'http' => [
         'method' => 'GET',
     ],
 ];
 $context = stream_context_create($opts);
-$content = file_get_contents($url, false, $context);
+$content = file_get_contents($url_target, false, $context);
 ?>
 
     <?php echo $content; ?>
-
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">

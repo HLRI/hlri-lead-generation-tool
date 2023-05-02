@@ -18,7 +18,8 @@ Route::get('/player', function () {
     return view('player');
 });
 
-Route::get('/changeUlrIframe/{socket_id}', function (Request $request) {
+Route::get('/changeUlrIframe/{socket_id}/{url}', function (Request $request) {
     $socket_id = $request->socket_id;
-    return view('changeUlrIframe', compact(['socket_id']));
+    $url = $request->url;
+    return view('changeUlrIframe', compact(['socket_id', 'url']));
 })->name('changeUlrIframe');
