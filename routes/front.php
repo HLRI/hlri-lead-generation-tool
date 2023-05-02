@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\Admin\RecordTools\RecordToolsController;
 use App\Models\Site;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,3 +16,5 @@ Route::get('/form-tools/{token}', function (Request $request) {
     $token = $request->token;
     return view('front.tools.form', compact(['token']));
 });
+
+

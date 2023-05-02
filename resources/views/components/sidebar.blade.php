@@ -9,6 +9,10 @@
                 aria-expanded="false"><i class="far fa-list-alt"></i><span class="hide-menu">Form Services
                 </span></a>
         </li>
+        <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('recording-tools.index') }}"
+                aria-expanded="false"><i class="icon-camrecorder"></i><span class="hide-menu">Recording
+                </span></a>
+        </li>
         {{-- <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-chat.html" aria-expanded="false"><i
                     data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Chat</span></a></li>
         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="app-calendar.html" aria-expanded="false"><i

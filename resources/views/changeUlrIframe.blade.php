@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
     .blink {
         display: none;
@@ -20,29 +23,69 @@
         }
     }
 
+    .panel-screen {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .buttons {
+        width: 140px;
+        border-radius: 10px;
+        padding: 6px;
+        background: rgb(239 239 239);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
         position: fixed;
-        top: 10px;
-        right: 35px;
+        bottom: 10px;
         z-index: 999999;
     }
 
     #play {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         border: none;
-        padding: 8px 20px;
         background: rgb(43, 216, 43);
-        border-radius: 20px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
         outline: none;
         color: white;
     }
 
     #pause {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         border: none;
-        padding: 8px 20px;
         background: rgb(216, 43, 43);
-        border-radius: 20px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
         outline: none;
         color: white;
+    }
+
+    #repeat {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background: rgb(60, 43, 216);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        outline: none;
+        color: white;
+    }
+
+    .fa-play,
+    .fa-pause,
+    .fa-repeat {
+        font-size: 12px !important;
     }
 </style>
 <div class="wraper-player"></div>
@@ -52,26 +95,36 @@
         <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
             class="bi bi-play" viewBox="0 0 16 16">
             <path
-                d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"
-                ></path>
+                d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z">
+            </path>
         </svg>
         <svg id="pause-icon" style="display: none" xmlns="http://www.w3.org/2000/svg" width="35" height="35"
             fill="currentColor" class="bi bi-pause" viewBox="0 0 16 16">
             <path
-                d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"
-                ></path>
+                d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z">
+            </path>
         </svg>
     </div>
 </div>
 <img width="18.6px" src="{{ asset('images/mouse.png') }}" id="mouse">
 
-<div class="buttons">
-    <button type="button" id="play">Play</button>
-    <button type="button" id="pause">Pause</button>
-
+<div class="panel-screen">
+    <div class="buttons">
+        <button type="button" id="play">
+            <i class="fas fa-play"></i>
+        </button>
+        <button type="button" id="pause">
+            <i class="fas fa-pause"></i>
+        </button>
+        <button type="button" id="repeat">
+            <i class="fas fa-repeat"></i>
+        </button>
+    </div>
 </div>
+
+
 <?php
-$url = 'https://projects-test.test';
+$url = 'http://projects-test.test/';
 $opts = [
     'http' => [
         'method' => 'GET',
@@ -79,21 +132,21 @@ $opts = [
 ];
 $context = stream_context_create($opts);
 $content = file_get_contents($url, false, $context);
-echo $content;
 ?>
 
+    <?php echo $content; ?>
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-    fetch('{{ route('dataset') }}')
+    fetch('{{ route('dataset', ['socket_id' => $socket_id]) }}')
         .then(response => response.json())
         .then(data => {
 
-            var content = $("body");
-            content.css({
-                "overflow": "hidden",
-            });
+            // var content = $("body");
+            // content.css({
+            //     "overflow": "hidden",
+            // });
 
             var wraper = $(".wraper-player");
             wraper.css({
@@ -132,7 +185,8 @@ echo $content;
                 } else if (data[currentFrame].type == 'stop') {
 
                 } else if (data[currentFrame].type == 'click') {
-                    $('body').append('<span class="c' + data[currentFrame].pageX + data[currentFrame].pageY +
+                    $('body').append('<span class="pointer c' + data[currentFrame].pageX + data[currentFrame]
+                        .pageY +
                         '"></span>');
                     var image = $('.c' + data[currentFrame].pageX + data[currentFrame].pageY).css({
                         "width": "15px",
@@ -181,6 +235,14 @@ echo $content;
                 $('#play-icon').hide();
                 $('.status-video').text('Pausing ');
                 cancelAnimationFrame(intervalId);
+            });
+            $('#repeat').click(function(e) {
+                $('.pointer').remove();
+                var content = $('body');
+                content.scrollTop(0);
+                content.scrollLeft(0);
+                cancelAnimationFrame(intervalId);
+                intervalId = requestAnimationFrame(animate);
             });
         })
         .catch(error => console.error(error));

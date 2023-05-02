@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\Ajax\FormToolsAjaxController;
+use App\Http\Controllers\Admin\Ajax\RecordToolsAjaxController;
 use App\Http\Controllers\Admin\FormTools\FormToolsController;
+use App\Http\Controllers\Admin\RecordTools\RecordToolsController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,4 +17,9 @@ Route::get('form-tools/code/{token}', [FormToolsController::class, 'code'])->nam
 
 
 Route::post('form-tools/store', [FormToolsAjaxController::class, 'store'])->name('form-tools.store');
-Route::get('form-tools/dataset', [FormToolsAjaxController::class, 'dataset'])->name('dataset');
+
+Route::get('recording-tools/list', [RecordToolsController::class, 'index'])->name('recording-tools.index');
+Route::get('recording-tools/sessions/{url}', [RecordToolsController::class, 'sessions'])->name('recording-tools.sessions');
+Route::get('recording-tools/show/{session}', [RecordToolsController::class, 'show'])->name('recording-tools.show');
+Route::get('recording-tools/dataset/{socket_id}', [RecordToolsAjaxController::class, 'dataset'])->name('dataset');
+

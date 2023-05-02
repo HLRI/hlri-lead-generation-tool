@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\InfoController;
+use App\Http\Controllers\Admin\RecordTools\RecordToolsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,4 +16,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix'=>'v1'], function(){
     Route::get('/save-info', [InfoController::class, 'store'])->name('save-info');
     Route::get('/crm-info', [InfoController::class, 'crm'])->name('crm-info');
+    Route::get('/record-tools/store', [RecordToolsController::class, 'store'])->name('record-tools.store');
 });

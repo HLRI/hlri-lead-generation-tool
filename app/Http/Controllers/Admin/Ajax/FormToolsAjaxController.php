@@ -43,10 +43,5 @@ class FormToolsAjaxController extends Controller
         return substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, $limit);
     }
 
-    public function dataset()
-    {
-        $path = public_path('dataset/data.json');
-        $json = json_decode(file_get_contents($path), true);
-        return $json;
-    }
+   
 }
