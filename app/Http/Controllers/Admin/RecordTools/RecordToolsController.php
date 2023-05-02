@@ -34,7 +34,6 @@ class RecordToolsController extends Controller
         return view('admin.recording-tools.sessions', compact(['sites']));
     }
 
-    
     public function show(Request $request)
     {
         $info = Record::where('session', $request->session)->first();
