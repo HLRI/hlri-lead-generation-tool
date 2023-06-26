@@ -31,7 +31,7 @@ class FormToolsAjaxController extends Controller
         $site->save();
 
         $url = URL::to('form-tools') . '/' . $token;
-
+        $this->send
         return response()->json([
             "status" => "SUCCESS",
             "url" => $url
@@ -43,5 +43,6 @@ class FormToolsAjaxController extends Controller
         return substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, $limit);
     }
 
-   
+    
+
 }

@@ -71,10 +71,11 @@ class InfoController extends Controller
             "page" => $request->url
         );
         $head = [
-            'Authorization' => 'Bearer ' . '182|wX02FCJ4XcSKbL5NntSi8pDFMs3t6h9bTEuum0sP',
+            'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
             'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
         ];
         $response = Http::withHeaders($head)->post($ch, $body);
     }
+
 }
 
