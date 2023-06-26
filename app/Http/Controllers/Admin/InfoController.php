@@ -76,6 +76,7 @@ class InfoController extends Controller
             "term" => $request->term,
             "content" => $request->content,
             "campaign" => $request->campaign,
+            "custom_source" => $request->custom_source,
             "prName" => $prn,
         );
         $head = [
