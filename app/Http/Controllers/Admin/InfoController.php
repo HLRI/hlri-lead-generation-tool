@@ -15,6 +15,10 @@ class InfoController extends Controller
     public function store(Request $request)
     {
 
+        return response()->json([
+            'status' => $request->all()
+        ]);
+
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:50',
             'email' => 'required|email',
