@@ -75,7 +75,7 @@ class InfoController extends Controller
             'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
             'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
         ];
-        $response = Http::withHeaders($head)->post($ch, json_encode($body));
+        $response = Http::withHeaders($head)->post($ch, $body);
     }
 
 }
