@@ -47,7 +47,7 @@ class InfoController extends Controller
                 $info->phone = $request->phone;
                 $info->site_token = $request->token;
                 $info->save();
-                $this->crm($request);
+                $this->crm($request, $is_token->name);
                 return response()->json([
                     'status' => 'SUCCESS'
                 ]);
@@ -63,7 +63,7 @@ class InfoController extends Controller
         }
     }
 
-    public function crm($request)
+    public function crm($request, $prn)
     {
         $ch = 'https://hlrihub.com/api/v1/lead-call';
         $body = array(
@@ -76,6 +76,7 @@ class InfoController extends Controller
             "term" => $request->term,
             "content" => $request->content,
             "campaign" => $request->campaign,
+            "prName" => $prn,
         );
         $head = [
             'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
