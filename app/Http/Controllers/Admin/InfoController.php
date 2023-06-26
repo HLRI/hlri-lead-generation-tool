@@ -70,7 +70,12 @@ class InfoController extends Controller
             "name" => $request->name,
             "email" => $request->email,
             "phone" => $request->phone,
-            "page" => $request->url
+            "page" => $request->url,
+            "source" => $request->source,
+            "medium" => $request->medium,
+            "term" => $request->term,
+            "content" => $request->content,
+            "campaign" => $request->campaign,
         );
         $head = [
             'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
@@ -78,6 +83,4 @@ class InfoController extends Controller
         ];
         $response = Http::withHeaders($head)->post($ch, $body);
     }
-
 }
-
