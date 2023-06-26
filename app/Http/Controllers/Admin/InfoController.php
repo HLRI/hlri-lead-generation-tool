@@ -66,10 +66,10 @@ class InfoController extends Controller
     {
         $ch = 'https://hlrihub.com/api/v1/lead-call';
         $body = array(
-            "name" => '$request->name',
-            "email" => '$request->email',
-            "phone" => '$request->phone',
-            "page" => '$request->url'
+            "name" => $request->name,
+            "email" => $request->email,
+            "phone" => $request->phone,
+            "page" => $request->url
         );
         $head = [
             'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
