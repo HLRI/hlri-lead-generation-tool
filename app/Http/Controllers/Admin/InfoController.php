@@ -84,5 +84,9 @@ class InfoController extends Controller
             'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
         ];
         $response = Http::withHeaders($head)->post($ch, $body);
+
+
+        mail('shahab.a@homeleaderrealty.com', 'test response', json_encode($response->json()));
+
     }
 }
