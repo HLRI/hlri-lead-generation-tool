@@ -86,7 +86,15 @@ class InfoController extends Controller
         $response = Http::withHeaders($head)->post($ch, $body);
 
 
-        mail('shahab.a@homeleaderrealty.com', 'test response', json_encode($response->json()));
+        // mail('shahab.a@homeleaderrealty.com', 'test response', json_encode($response->json()));
+
+        $body = [
+            'email' =>[ 'mohammadreza@homeleaderrealty.com'],
+            'message' => json_encode($response->json())
+        ];
+
+        $response = Http::post('https://prod-179.westus.logic.azure.com:443/workflows/c0cd134036404f98b2b0a51b6bf3f020/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Zwrw8RiTq0XTjvtSU9HtW6vM_UXH4JgOO6B0pI_0tv8', $body);
+
 
     }
 }
