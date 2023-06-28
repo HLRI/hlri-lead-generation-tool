@@ -22,7 +22,7 @@ class InfoController extends Controller
             'phone' => 'required',
         ]);
 
-        if(!$this->validatePhoneNumber($request->phone)){
+        if (!$this->validatePhoneNumber($request->phone)) {
             return response()->json([
                 'error' => ['Please enter a valid Canadian phone number.']
             ]);
