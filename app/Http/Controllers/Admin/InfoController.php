@@ -94,7 +94,7 @@ class InfoController extends Controller
         if($response == 201){
             $api = 'https://hlrihub.com/api/v1/confirmCode-sms';
             $body = array(
-                "phone" => '7805554567',
+                "phone" => $request->phone,
                 "code" => '1234',
             );
             $head = [
