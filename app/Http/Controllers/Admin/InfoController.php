@@ -91,18 +91,18 @@ class InfoController extends Controller
         ];
         $response = Http::withHeaders($head)->post($ch, $body);
 
-        if($response == 201){
-            $api = 'https://hlrihub.com/api/v1/confirmCode-sms';
-            $body = array(
-                "phone" => $request->phone,
-                "code" => '1234',
-            );
-            $head = [
-                'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
-                'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
-            ];
-            $response = Http::withHeaders($head)->post($api, $body);
-        }
+        // if($response == 201){
+        //     $api = 'https://hlrihub.com/api/v1/confirmCode-sms';
+        //     $body = array(
+        //         "phone" => $request->phone,
+        //         "code" => '1234',
+        //     );
+        //     $head = [
+        //         'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
+        //         'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
+        //     ];
+        //     $response = Http::withHeaders($head)->post($api, $body);
+        // }
 
         // mail('shahab.a@homeleaderrealty.com', 'test response', json_encode($response->json()));
 
