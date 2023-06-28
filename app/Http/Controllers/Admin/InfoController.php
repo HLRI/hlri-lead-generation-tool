@@ -22,6 +22,12 @@ class InfoController extends Controller
             'phone' => 'required',
         ]);
 
+        if(!$this->validatePhoneNumber($request->phone)){
+            return response()->json([
+                'error' => ['please enter a vali number']
+            ]);
+        }
+
         if ($validator->fails()) {
             return response()->json([
                 'error' => $validator->errors()->all()
@@ -88,13 +94,25 @@ class InfoController extends Controller
 
         // mail('shahab.a@homeleaderrealty.com', 'test response', json_encode($response->json()));
 
-        $body = [
-            'email' =>[ 'mohammadreza@homeleaderrealty.com'],
-            'message' => $response
-        ];
+        // $body = [
+        //     'email' =>[ 'mohammadreza@homeleaderrealty.com'],
+        //     'message' => $response
+        // ];
 
-        $response = Http::post('https://prod-179.westus.logic.azure.com:443/workflows/c0cd134036404f98b2b0a51b6bf3f020/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Zwrw8RiTq0XTjvtSU9HtW6vM_UXH4JgOO6B0pI_0tv8', $body);
+        // $response = Http::post('https://prod-179.westus.logic.azure.com:443/workflows/c0cd134036404f98b2b0a51b6bf3f020/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Zwrw8RiTq0XTjvtSU9HtW6vM_UXH4JgOO6B0pI_0tv8', $body);
 
 
+    }
+
+
+    function validatePhoneNumber($phoneNumber)
+    {
+        $canadaPattern = '/^\+?1?[2-9]\d{2}[2-9]\d{6}$/';
+        $cleanedNumber = preg_replace('/\D/', '', $phoneNumber);
+        if (preg_match($canadaPattern, $cleanedNumber)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
