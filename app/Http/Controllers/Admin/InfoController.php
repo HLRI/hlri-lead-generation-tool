@@ -24,7 +24,7 @@ class InfoController extends Controller
 
         if(!$this->validatePhoneNumber($request->phone)){
             return response()->json([
-                'error' => ['please enter a vali number']
+                'error' => ['Please enter a valid Canadian phone number.']
             ]);
         }
 
