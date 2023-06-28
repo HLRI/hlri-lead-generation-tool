@@ -108,7 +108,7 @@ class InfoController extends Controller
     function validatePhoneNumber($phoneNumber)
     {
 
-        $canadaPattern = '/^\+?1?[2-9]\d{2}[2-9]\d{6}$/';
+        $canadaPattern = '/^\+?1?\s*\(?(?:(?:[2-9][0-9]{2})\)?[-.\s]?){2}(?:[0-9]{4})$/';
         $cleanedNumber = preg_replace('/\D/', '', $phoneNumber);
         if (preg_match($canadaPattern, $cleanedNumber)) {
             return true;
