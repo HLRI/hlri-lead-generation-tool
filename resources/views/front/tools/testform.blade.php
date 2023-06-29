@@ -197,17 +197,19 @@
             </svg></div>
         <div class="hlri-popup-content">
 
+            <div class="form-block">
+                <div class="hlri-popup-titr">Would you like us to call you back? </div><input class="hlri-popup-input"
+                    type="text" placeholder="Name" id="hlri_name" style="width: calc(100% - 20px);"><input
+                    class="hlri-popup-input" type="email" placeholder="Email" id="hlri_email"
+                    style="width: calc(100% - 20px);"><input class="hlri-popup-input" style="padding-left:52px"
+                    type="tel" placeholder="Phone" id="hlri_phone">
+                <div class="hlri-popup-wrap-button"><a id="register-btn" class="hlri-popup-button-register">Request a
+                        call-back</a> Or <a id="hlri_call" class="hlri-popup-button-call">Call Now (647) 424-1119</a>
+                </div>
+            </div>
 
-            {{-- <div class="hlri-popup-titr">Would you like us to call you back? </div><input class="hlri-popup-input"
-                type="text" placeholder="Name" id="hlri_name" style="width: calc(100% - 20px);"><input
-                class="hlri-popup-input" type="email" placeholder="Email" id="hlri_email"
-                style="width: calc(100% - 20px);"><input class="hlri-popup-input" style="padding-left:52px"
-                type="tel" placeholder="Phone" id="hlri_phone">
-            <div class="hlri-popup-wrap-button"><a id="register-btn" class="hlri-popup-button-register">Request a
-                    call-back</a> Or <a id="hlri_call" class="hlri-popup-button-call">Call Now (647) 424-1119</a></div>
-            <div style="width:100%" id="errors"></div> --}}
 
-            <section class="wrap-sign-in">
+            <section class="wrap-sign-in" style="display: none">
                 <div class="sign-in-form">
                     <div class="verify-form">
                         <small class="send-mobile fs-10"></small>
@@ -220,6 +222,9 @@
                     </div>
                 </div>
             </section>
+
+
+            <div style="width:100%" id="errors"></div>
 
         </div>
     </div>
@@ -284,15 +289,9 @@
                         }).appendTo("#errors").text(r)
                     })
                 } else {
-                    if (e.status == "SUCCESS") {
-                        $("<div>", {
-                            class: "success",
-                        }).appendTo("#errors").text(
-                            "Your information has been successfully registered, we will contact you in a few minutes."
-                        );
-                        $("#hlri_name").val("");
-                        $("#hlri_email").val("");
-                        $("#hlri_phone").val("")
+                    if (e.confirm == "SUCCESS") {
+                        $('.form-block').hide();
+                        $('.wrap-sign-in').css('display' , 'block');
                     }
                 }
             }
