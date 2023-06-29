@@ -38,7 +38,7 @@ Route::get('/check-status', function () {
         ];
         $response = Http::withHeaders($head)->post($ch, $body);
 
-        dd($response->getStatus());
+        dd($response->getStatusCode());
 
 
         // if($response == 201){
