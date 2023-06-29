@@ -211,11 +211,11 @@
                 <div class="sign-in-form">
                     <div class="verify-form">
                         <small class="send-mobile fs-10"></small>
-                        <input type="number" class="form-control input-form-unset verify-code"
+                        <input type="number" class="hlri-popup-input verify-code"
                             placeholder="Enter verify code">
-                        <button class="btn-signin" id="btn-verify">Mobile Confirm</button>
-                        <div class="fs-10 timer-code">It will be sent in <span class="js-timeout">2:00</span> minutes</div>
-                        <small class="fs-10 send-again d-none">Resend Code</small>
+                        <button class="hlri-popup-button-register" id="btn-verify">Mobile Confirm</button>
+                        <div class="timer-code" style="font-size: 12px; color: #999;">It will be sent in <span class="js-timeout">2:00</span> minutes</div>
+                        <small class="send-again" style="color: #596ed7;">Resend Code</small>
                     </div>
                 </div>
             </section>
@@ -363,8 +363,8 @@
 
             if (minutes == 0 && seconds == 0) {
                 clearInterval(interval);
-                $('.timer-code').addClass('d-none');
-                $('.send-again').removeClass('d-none');
+                $('.timer-code').css('display' , 'none');
+                $('.send-again').css('display', 'block');
             }
         }, 1000);
     }
