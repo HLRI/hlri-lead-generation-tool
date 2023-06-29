@@ -119,6 +119,10 @@ class InfoController extends Controller
             return response()->json([
                 'status' => 'SUCCESS'
             ]);
+        }else{
+            return response()->json([
+                'error' => ['Invalid verification code. Please check and try again']
+            ]);
         }
     }
 
