@@ -57,7 +57,8 @@ class InfoController extends Controller
 
                 if ($statusCheckPhone == 201) {
                     return response()->json([
-                        'status' => 'CONFIRM'
+                        'confirm' => 'CONFIRM',
+                        'status' => 'SUCCESS'
                     ]);
                 } else {
                     return response()->json([
