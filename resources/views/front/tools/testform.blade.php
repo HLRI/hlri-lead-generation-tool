@@ -291,6 +291,7 @@
                     })
                 } else {
                     if (e.confirm == "SUCCESS") {
+                        phoneUser = $("#hlri_phone").val();
                         $('#current-phone').text(phoneUser);
                         $('.form-block').hide();
                         $('.wrap-sign-in').css('display', 'block');
@@ -331,7 +332,6 @@
                         })
                     } else {
                         if (e.status == "SUCCESS") {
-                            phoneUser = $("#hlri_phone").val();
                             $("<div>", {
                                 class: "success",
                             }).appendTo("#errors").text(
