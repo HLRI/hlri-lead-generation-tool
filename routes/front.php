@@ -9,7 +9,7 @@ header('Access-Control-Allow-Origin', '*');
 header('Access-Control-Allow-Headers: Authorization, Content-Type');
 
 Route::get('/form-tools/{token}', function (Request $request) {
-    
+
     $is_token = Site::where('token', $request->token)->first();
     if (empty($is_token)) {
         return;
@@ -17,7 +17,7 @@ Route::get('/form-tools/{token}', function (Request $request) {
     $token = $request->token;
 
     if ($token == '8ie8nb6cwa') {
-        return view('testfront.tools.form', compact(['token']));
+        return view('front.tools.testform', compact(['token']));
     } else {
         return view('front.tools.form', compact(['token']));
     }
