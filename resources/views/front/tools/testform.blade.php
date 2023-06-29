@@ -197,7 +197,6 @@
             </svg></div>
         <div class="hlri-popup-content">
 
-            <div class="form-block">
                 <div class="hlri-popup-titr">Would you like us to call you back? </div><input class="hlri-popup-input"
                     type="text" placeholder="Name" id="hlri_name" style="width: calc(100% - 20px);"><input
                     class="hlri-popup-input" type="email" placeholder="Email" id="hlri_email"
@@ -206,7 +205,6 @@
                 <div class="hlri-popup-wrap-button"><a id="register-btn" class="hlri-popup-button-register">Request a
                         call-back</a> Or <a id="hlri_call" class="hlri-popup-button-call">Call Now (647) 424-1119</a>
                 </div>
-            </div>
 
 
             <section class="wrap-sign-in" style="display: none">
