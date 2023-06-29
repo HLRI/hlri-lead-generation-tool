@@ -214,7 +214,7 @@
                         <input type="number" class="hlri-popup-input verify-code" placeholder="Enter verify code">
                         <button class="hlri-popup-button-register" id="btn-verify">Mobile Confirm</button>
                         <div class="timer-code" style="font-size: 12px; color: #999;">It will be sent in <span
-                                class="js-timeout">2:00</span> minutes</div>
+                                class="js-timeout">5:00</span> minutes</div>
                         <small class="send-again" style="color: #596ed7;display: none;cursor: pointer;">Resend
                             Code</small>
                     </div>
@@ -358,7 +358,7 @@
             else if (seconds < 0 && minutes != 0) {
                 minutes -= 1;
                 seconds = 59;
-            } else if (seconds < 10 && length.seconds != 2) seconds = '0' + seconds;
+            } else if (seconds < 10 && length.seconds != 5) seconds = '0' + seconds;
 
             $('.js-timeout').html(minutes + ':' + seconds);
 
@@ -373,7 +373,7 @@
     $('.send-again').click(function() {
         $('.timer-code').css('display', 'block');
         $('.send-again').css('display', 'none');
-        $('.js-timeout').text("2:00");
+        $('.js-timeout').text("5:00");
         countdown();
         // $.ajax({
         //     type: 'post',
