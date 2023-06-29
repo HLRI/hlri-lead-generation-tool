@@ -18,41 +18,40 @@ Route::get('/tracking-code', function () {
 
 Route::get('/check-status', function () {
 
-        $ch = 'https://hlrihub.com/api/v1/lead-call';
-        $body = array(
-            "name" => '$request->name',
-            "email" => 'ehsan@gmail.com',
-            "phone" => '+989191816172',
-            "page" => '$request->url',
-            "source" => '$request->source',
-            "medium" => '$request->medium',
-            "term" => '$request->term',
-            "content" => '$request->content',
-            "campaign" => '$request->campaign',
-            "custom_source" => '$request->custom_source',
-            "prName" => '$prn',
-        );
-        $head = [
-            'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
-            'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
-        ];
-        $response = Http::withHeaders($head)->post($ch, $body);
+        // $ch = 'https://hlrihub.com/api/v1/lead-call';
+        // $body = array(
+        //     "name" => '$request->name',
+        //     "email" => 'ehsan@gmail.com',
+        //     "phone" => '+989191816172',
+        //     "page" => '$request->url',
+        //     "source" => '$request->source',
+        //     "medium" => '$request->medium',
+        //     "term" => '$request->term',
+        //     "content" => '$request->content',
+        //     "campaign" => '$request->campaign',
+        //     "custom_source" => '$request->custom_source',
+        //     "prName" => '$prn',
+        // );
+        // $head = [
+        //     'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
+        //     'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
+        // ];
+        // $response = Http::withHeaders($head)->post($ch, $body);
 
-        dd($response->getStatusCode());
+        if(true){
+            $apisms = 'https://hlrihub.com/api/v1/confirmCode-sms';
+            $body = array(
+                "phone" => '+989191816172',
+                "code" => '90605',
+            );
+            $head = [
+                'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
+                'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
+            ];
+            $response = Http::withHeaders($head)->post($apisms, $body);
 
-
-        // if($response == 201){
-        //     $apisms = 'https://hlrihub.com/api/v1/confirmCode-sms';
-        //     $body = array(
-        //         "phone" => $request->phone,
-        //         "code" => '1234',
-        //     );
-        //     $head = [
-        //         'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
-        //         'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
-        //     ];
-        //     $response = Http::withHeaders($head)->post($apisms, $body);
-        // }
+            dd($response);
+        }
 
         // mail('shahab.a@homeleaderrealty.com', 'test response', json_encode($response->json()));
 
