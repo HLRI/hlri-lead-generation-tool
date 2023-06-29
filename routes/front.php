@@ -14,7 +14,13 @@ Route::get('/form-tools/{token}', function (Request $request) {
         return;
     }
     $token = $request->token;
-    return view('front.tools.form', compact(['token']));
+
+    if($_SERVER['REQUEST_URI'] == 'https://docs.hlric.com'){
+        return view('front.tools.form', compact(['token']));
+    }else{
+        return view('testfront.tools.form', compact(['token']));
+    }
+
 });
 
 

@@ -53,10 +53,17 @@ class InfoController extends Controller
                 $info->phone = $request->phone;
                 $info->site_token = $request->token;
                 $info->save();
-                $this->crm($request, $is_token->name);
-                return response()->json([
-                    'status' => 'SUCCESS'
-                ]);
+                $statusCheckPhone = $this->crm($request, $is_token->name);
+
+                if ($statusCheckPhone == 201) {
+                    return response()->json([
+                        'status' => 'CONFIRM'
+                    ]);
+                } else {
+                    return response()->json([
+                        'error' => ['Invalid verification code. Please check and try again']
+                    ]);
+                }
             } else {
                 return response()->json([
                     'error' => ['Your site is not authorized to access']
@@ -90,34 +97,31 @@ class InfoController extends Controller
             'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
         ];
         $response = Http::withHeaders($head)->post($ch, $body);
-
-        // if($response == 201){
-        //     $apisms = 'https://hlrihub.com/api/v1/confirmCode-sms';
-        //     $body = array(
-        //         "phone" => $request->phone,
-        //         "code" => '1234',
-        //     );
-        //     $head = [
-        //         'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
-        //         'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
-        //     ];
-        //     $response = Http::withHeaders($head)->post($apisms, $body);
-        // }
-
-        // mail('shahab.a@homeleaderrealty.com', 'test response', json_encode($response->json()));
-
-        // $body = [
-        //     'email' =>[ 'mohammadreza@homeleaderrealty.com'],
-        //     'message' => $response
-        // ];
-
-        // $response = Http::post('https://prod-179.westus.logic.azure.com:443/workflows/c0cd134036404f98b2b0a51b6bf3f020/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Zwrw8RiTq0XTjvtSU9HtW6vM_UXH4JgOO6B0pI_0tv8', $body);
+        return $response->getStatusCode();
     }
 
+    public function confirmPhone(Request $request)
+    {
+        $apisms = 'https://hlrihub.com/api/v1/confirmCode-sms';
+        $body = array(
+            "phone" => $request->phone,
+            "code" => $request->code,
+        );
+        $head = [
+            'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
+            'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
+        ];
+        $response = Http::withHeaders($head)->post($apisms, $body);
+
+        if ($response->getStatusCode() == 201) {
+            return response()->json([
+                'status' => 'SUCCESS'
+            ]);
+        }
+    }
 
     public function validatePhoneNumber($phoneNumber)
     {
-
         $canadaPattern = '/^\+?1?\s*\(?(?:(?:[2-9][0-9]{2})\)?[-.\s]?){2}(?:[0-9]{4})$/';
         $cleanedNumber = preg_replace('/\D/', '', $phoneNumber);
         if (preg_match($canadaPattern, $cleanedNumber)) {
