@@ -15,12 +15,9 @@ Route::get('/form-tools/{token}', function (Request $request) {
     }
     $token = $request->token;
 
-    if(true){
-        return view('front.tools.form', compact(['token']));
-    }else{
+    if ($token == '1111') {
         return view('testfront.tools.form', compact(['token']));
+    } else {
+        return view('front.tools.form', compact(['token']));
     }
-
 });
-
-
