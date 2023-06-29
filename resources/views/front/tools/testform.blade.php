@@ -246,6 +246,8 @@
             </g>
         </svg></span></div>
 <script>
+    var phoneUser = '';
+
     function form_popup_toggle() {
         var e = document.getElementById("form-popup");
         e.style.display = "flex"
@@ -327,6 +329,7 @@
                         })
                     } else {
                         if (e.status == "SUCCESS") {
+                            phoneUser = $("#hlri_phone").val();
                             $("<div>", {
                                 class: "success",
                             }).appendTo("#errors").text(
@@ -384,5 +387,38 @@
 
         //     },
         // });
+    });
+
+    $('#btn-verify').click(function() {
+        $.ajax({
+            url: "{{ route('confirmPhone') }}",
+            data: {
+                "url": e,
+                "token": "{{ $token }}",
+                "code": $('#verify-code').val(),
+                "phone": phoneUser,
+            },
+            type: "GET",
+            success: function(e) {
+                $("#errors").html("");
+                if (e.error) {
+                    $.each(e.error, function(e, r) {
+                        $("<div>", {
+                            class: "error",
+                        }).appendTo("#errors").text(r)
+                    })
+                } else {
+                    if (e.status == "SUCCESS") {
+                        if (e.status == "SUCCESS") {
+                            $("<div>", {
+                                class: "success",
+                            }).appendTo("#errors").text(
+                                "Your information has been successfully registered, we will contact you in a few minutes."
+                                );
+                        }
+                    }
+                }
+            }
+        })
     });
 </script>
