@@ -211,11 +211,12 @@
                 <div class="sign-in-form">
                     <div class="verify-form">
                         <small class="send-mobile fs-10"></small>
-                        <input type="number" class="hlri-popup-input verify-code"
-                            placeholder="Enter verify code">
+                        <input type="number" class="hlri-popup-input verify-code" placeholder="Enter verify code">
                         <button class="hlri-popup-button-register" id="btn-verify">Mobile Confirm</button>
-                        <div class="timer-code" style="font-size: 12px; color: #999;">It will be sent in <span class="js-timeout">2:00</span> minutes</div>
-                        <small class="send-again" style="color: #596ed7;display: none;cursor: pointer;">Resend Code</small>
+                        <div class="timer-code" style="font-size: 12px; color: #999;">It will be sent in <span
+                                class="js-timeout">2:00</span> minutes</div>
+                        <small class="send-again" style="color: #596ed7;display: none;cursor: pointer;">Resend
+                            Code</small>
                     </div>
                 </div>
             </section>
@@ -363,15 +364,15 @@
 
             if (minutes == 0 && seconds == 0) {
                 clearInterval(interval);
-                $('.timer-code').css('display' , 'none');
+                $('.timer-code').css('display', 'none');
                 $('.send-again').css('display', 'block');
             }
         }, 1000);
     }
 
     $('.send-again').click(function() {
-        $('.timer-code').removeClass('d-none');
-        $('.send-again').addClass('d-none');
+        $('.timer-code').css('display', 'block');
+        $('.send-again').css('display', 'none');
         $('.js-timeout').text("2:00");
         countdown();
         // $.ajax({
