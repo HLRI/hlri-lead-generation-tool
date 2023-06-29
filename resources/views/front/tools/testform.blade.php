@@ -215,7 +215,7 @@
                     <div class="verify-form">
                         <small class="send-mobile fs-10"></small>
                         <input type="number" class="hlri-popup-input verify-code" placeholder="Enter verify code">
-                        <button class="hlri-popup-button-register" id="btn-verify">Mobile Confirm</button>
+                        <button class="hlri-popup-button-register" id="btn-verify">Verify</button>
                         <div class="timer-code" style="font-size: 12px; color: #999;">It will be sent in <span
                                 class="js-timeout">5:00</span> minutes</div>
                         <small class="send-again" style="color: #596ed7;display: none;cursor: pointer;">Resend
