@@ -210,6 +210,7 @@
 
 
             <section class="wrap-sign-in" style="display: none">
+                <div style="font-size: 10px;margin-bottom: 4px">a verification code has been sent to your <span id="current-phone"></span>, please enter the code below</div>
                 <div class="sign-in-form">
                     <div class="verify-form">
                         <small class="send-mobile fs-10"></small>
@@ -290,6 +291,7 @@
                     })
                 } else {
                     if (e.confirm == "SUCCESS") {
+                        $('#current-phone').text(phoneUser);
                         $('.form-block').hide();
                         $('.wrap-sign-in').css('display', 'block');
                         countdown();
