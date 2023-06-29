@@ -21,8 +21,8 @@ Route::get('/check-status', function () {
         $ch = 'https://hlrihub.com/api/v1/lead-call';
         $body = array(
             "name" => '$request->name',
-            "email" => '$request->email',
-            "phone" => '$request->phone',
+            "email" => 'ehsan@gmail.com',
+            "phone" => '+989191816172',
             "page" => '$request->url',
             "source" => '$request->source',
             "medium" => '$request->medium',
