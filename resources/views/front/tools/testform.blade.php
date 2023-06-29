@@ -189,7 +189,7 @@
 
         <section class="wrap-sign-in">
             <div class="sign-in-form">
-                <div class="verify-form" style="display: none;">
+                <div class="verify-form">
                     <small class="send-mobile fs-10"></small>
                     <input type="number" class="form-control input-form-unset verify-code"
                         placeholder="Enter verify code">
