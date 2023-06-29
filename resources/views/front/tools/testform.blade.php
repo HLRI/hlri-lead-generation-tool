@@ -187,35 +187,40 @@
     <div class="hlri-popup-body">
 
 
-        <section class="wrap-sign-in">
-            <div class="sign-in-form">
-                <div class="verify-form">
-                    <small class="send-mobile fs-10"></small>
-                    <input type="number" class="form-control input-form-unset verify-code"
-                        placeholder="Enter verify code">
-                    <button class="btn-signin" id="btn-verify">Mobile Confirm</button>
-                    <div class="fs-10 timer-code">It will be sent in <span class="js-timeout">2:00</span> minutes</div>
-                    <small class="fs-10 send-again d-none">Resend Code</small>
-                </div>
-            </div>
-        </section>
 
 
-        {{-- <div class="hlri-close-button"><svg style="cursor:pointer" onclick="closepopup()" width="20px" height="20px"
+
+        <div class="hlri-close-button"><svg style="cursor:pointer" onclick="closepopup()" width="20px" height="20px"
                 viewPort="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <line x1="1" y1="11" x2="11" y2="1" stroke="black" stroke-width="2" />
                 <line x1="1" y1="1" x2="11" y2="11" stroke="black" stroke-width="2" />
             </svg></div>
         <div class="hlri-popup-content">
-            <div class="hlri-popup-titr">Would you like us to call you back? </div><input class="hlri-popup-input"
+
+
+            {{-- <div class="hlri-popup-titr">Would you like us to call you back? </div><input class="hlri-popup-input"
                 type="text" placeholder="Name" id="hlri_name" style="width: calc(100% - 20px);"><input
                 class="hlri-popup-input" type="email" placeholder="Email" id="hlri_email"
                 style="width: calc(100% - 20px);"><input class="hlri-popup-input" style="padding-left:52px"
                 type="tel" placeholder="Phone" id="hlri_phone">
             <div class="hlri-popup-wrap-button"><a id="register-btn" class="hlri-popup-button-register">Request a
                     call-back</a> Or <a id="hlri_call" class="hlri-popup-button-call">Call Now (647) 424-1119</a></div>
-            <div style="width:100%" id="errors"></div>
-        </div> --}}
+            <div style="width:100%" id="errors"></div> --}}
+
+            <section class="wrap-sign-in">
+                <div class="sign-in-form">
+                    <div class="verify-form">
+                        <small class="send-mobile fs-10"></small>
+                        <input type="number" class="form-control input-form-unset verify-code"
+                            placeholder="Enter verify code">
+                        <button class="btn-signin" id="btn-verify">Mobile Confirm</button>
+                        <div class="fs-10 timer-code">It will be sent in <span class="js-timeout">2:00</span> minutes</div>
+                        <small class="fs-10 send-again d-none">Resend Code</small>
+                    </div>
+                </div>
+            </section>
+
+        </div>
     </div>
 </div>
 <div style="position:fixed;bottom:2.5rem;right:2.5rem;cursor:pointer;z-index:999" onclick="form_popup_toggle()"><span
@@ -235,7 +240,6 @@
             </g>
         </svg></span></div>
 <script>
-
     countdown();
 
     function form_popup_toggle() {
