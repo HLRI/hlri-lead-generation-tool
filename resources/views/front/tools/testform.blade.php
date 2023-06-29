@@ -390,6 +390,7 @@
     });
 
     $('#btn-verify').click(function() {
+        $("#errors").html("Processing ...");
         $.ajax({
             url: "{{ route('confirmPhone') }}",
             data: {
