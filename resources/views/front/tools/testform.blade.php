@@ -185,7 +185,23 @@
 </style>
 <div class="hlri-wrap-popup" id="form-popup">
     <div class="hlri-popup-body">
-        <div class="hlri-close-button"><svg style="cursor:pointer" onclick="closepopup()" width="20px" height="20px"
+
+
+        <section class="wrap-sign-in">
+            <div class="sign-in-form">
+                <div class="verify-form" style="display: none;">
+                    <small class="send-mobile fs-10"></small>
+                    <input type="number" class="form-control input-form-unset verify-code"
+                        placeholder="Enter verify code">
+                    <button class="btn-signin" id="btn-verify">Mobile Confirm</button>
+                    <div class="fs-10 timer-code">It will be sent in <span class="js-timeout">2:00</span> minutes</div>
+                    <small class="fs-10 send-again d-none">Resend Code</small>
+                </div>
+            </div>
+        </section>
+
+
+        {{-- <div class="hlri-close-button"><svg style="cursor:pointer" onclick="closepopup()" width="20px" height="20px"
                 viewPort="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <line x1="1" y1="11" x2="11" y2="1" stroke="black" stroke-width="2" />
                 <line x1="1" y1="1" x2="11" y2="11" stroke="black" stroke-width="2" />
@@ -199,7 +215,7 @@
             <div class="hlri-popup-wrap-button"><a id="register-btn" class="hlri-popup-button-register">Request a
                     call-back</a> Or <a id="hlri_call" class="hlri-popup-button-call">Call Now (647) 424-1119</a></div>
             <div style="width:100%" id="errors"></div>
-        </div>
+        </div> --}}
     </div>
 </div>
 <div style="position:fixed;bottom:2.5rem;right:2.5rem;cursor:pointer;z-index:999" onclick="form_popup_toggle()"><span
@@ -219,7 +235,8 @@
             </g>
         </svg></span></div>
 <script>
-    ;
+
+    countdown();
 
     function form_popup_toggle() {
         var e = document.getElementById("form-popup");
@@ -267,7 +284,7 @@
                             class: "success",
                         }).appendTo("#errors").text(
                             "Your information has been successfully registered, we will contact you in a few minutes."
-                            );
+                        );
                         $("#hlri_name").val("");
                         $("#hlri_email").val("");
                         $("#hlri_phone").val("")
@@ -311,7 +328,7 @@
                                 class: "success",
                             }).appendTo("#errors").text(
                                 "Your information has been successfully registered, we will contact you in 10 minutes."
-                                );
+                            );
                             $("#hlri_name").val("");
                             $("#hlri_email").val("");
                             $("#hlri_phone").val("")
@@ -320,5 +337,49 @@
                 }
             })
         }
+    });
+
+    var interval;
+
+    function countdown() {
+        clearInterval(interval);
+        interval = setInterval(function() {
+            var timer = $('.js-timeout').html();
+            timer = timer.split(':');
+            var minutes = timer[0];
+            var seconds = timer[1];
+            seconds -= 1;
+            if (minutes < 0) return;
+            else if (seconds < 0 && minutes != 0) {
+                minutes -= 1;
+                seconds = 59;
+            } else if (seconds < 10 && length.seconds != 2) seconds = '0' + seconds;
+
+            $('.js-timeout').html(minutes + ':' + seconds);
+
+            if (minutes == 0 && seconds == 0) {
+                clearInterval(interval);
+                $('.timer-code').addClass('d-none');
+                $('.send-again').removeClass('d-none');
+            }
+        }, 1000);
+    }
+
+    $('.send-again').click(function() {
+        $('.timer-code').removeClass('d-none');
+        $('.send-again').addClass('d-none');
+        $('.js-timeout').text("2:00");
+        countdown();
+        // $.ajax({
+        //     type: 'post',
+        //     url: AjaxShahrzad.url,
+        //     data: {
+        //         action: 'send_mobile',
+        //         mobile: $('.mobile').val()
+        //     },
+        //     success: function(response) {
+
+        //     },
+        // });
     });
 </script>
