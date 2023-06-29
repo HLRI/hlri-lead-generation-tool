@@ -246,8 +246,6 @@
             </g>
         </svg></span></div>
 <script>
-    countdown();
-
     function form_popup_toggle() {
         var e = document.getElementById("form-popup");
         e.style.display = "flex"
@@ -291,7 +289,8 @@
                 } else {
                     if (e.confirm == "SUCCESS") {
                         $('.form-block').hide();
-                        $('.wrap-sign-in').css('display' , 'block');
+                        $('.wrap-sign-in').css('display', 'block');
+                        countdown();
                     }
                 }
             }

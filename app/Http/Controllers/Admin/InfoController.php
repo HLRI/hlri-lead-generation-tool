@@ -38,6 +38,7 @@ class InfoController extends Controller
         $url =  parse_url($request->url, PHP_URL_HOST);
         $is_token = Site::where('token', $request->token)->first();
         if (!empty($is_token)) {
+            // $is_token->url == $url
             if (true) {
                 $existsInfo = Info::where('site_token', $request->token)->first();
                 if (!empty($existsInfo)) {
