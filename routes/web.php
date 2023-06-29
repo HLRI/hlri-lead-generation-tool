@@ -42,7 +42,7 @@ Route::get('/check-status', function () {
             $apisms = 'https://hlrihub.com/api/v1/confirmCode-sms';
             $body = array(
                 "phone" => '+989191816172',
-                "code" => '90605',
+                "code" => '18537',
             );
             $head = [
                 'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
