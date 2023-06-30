@@ -61,6 +61,10 @@ class InfoController extends Controller
                         'confirm' => 'SUCCESS',
                         'status' => 'SUCCESS'
                     ]);
+                } else if ($statusCheckPhone == 401) {
+                    return response()->json([
+                        'error' => ['The Number has ben already verified']
+                    ]);
                 } else {
                     return response()->json([
                         'error' => ['Invalid verification code. Please check and try again']
@@ -141,6 +145,10 @@ class InfoController extends Controller
         if ($response->getStatusCode() == 201) {
             return response()->json([
                 'status' => 'SUCCESS'
+            ]);
+        } else if ($response->getStatusCode() == 401) {
+            return response()->json([
+                'error' => ['The Number has ben already verified']
             ]);
         }
     }
