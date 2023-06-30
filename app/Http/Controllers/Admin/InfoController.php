@@ -63,7 +63,11 @@ class InfoController extends Controller
                     ]);
                 } else if ($statusCheckPhone == 403) {
                     return response()->json([
-                        'error' => ['The Number has ben already verified']
+                        'error' => ['an inquiry has already been submitted with this number']
+                    ]);
+                } else if ($statusCheckPhone == 429) {
+                    return response()->json([
+                        'error' => ['Too many tries. Please try again in 5 minutes']
                     ]);
                 } else {
                     return response()->json([
@@ -148,7 +152,11 @@ class InfoController extends Controller
             ]);
         } else if ($response->getStatusCode() == 403) {
             return response()->json([
-                'error' => ['The Number has ben already verified']
+                'error' => ['an inquiry has already been submitted with this number']
+            ]);
+        } else if ($response->getStatusCode() == 429) {
+            return response()->json([
+                'error' => ['Too many tries. Please try again in 5 minutes']
             ]);
         }
     }
@@ -163,4 +171,5 @@ class InfoController extends Controller
             return false;
         }
     }
+    
 }
