@@ -186,10 +186,6 @@
 <div class="hlri-wrap-popup" id="form-popup">
     <div class="hlri-popup-body">
 
-
-
-
-
         <div class="hlri-close-button"><svg style="cursor:pointer" onclick="closepopup()" width="20px" height="20px"
                 viewPort="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <line x1="1" y1="11" x2="11" y2="1" stroke="black" stroke-width="2" />
@@ -210,15 +206,18 @@
 
 
             <section class="wrap-sign-in" style="display: none">
-                <div style="font-size: 13px;margin-bottom: 10px">a verification code has been sent to <span style="color: #8667ff; font-weight: bold;" id="current-phone"></span>, please enter the code below</div>
+                <div style="font-size: 13px;margin-bottom: 10px">a verification code has been sent to <span
+                        style="color: #8667ff; font-weight: bold;" id="current-phone"></span>, please enter the code
+                    below</div>
                 <div class="sign-in-form">
                     <div class="verify-form">
                         <small class="send-mobile fs-10"></small>
                         <input type="number" class="hlri-popup-input verify-code" placeholder="Enter verify code">
                         <button class="hlri-popup-button-register" id="btn-verify">Verify</button>
-                        <div class="timer-code" style="font-size: 12px; color: #999;margin: 10px 0">It will be sent in <span
-                                class="js-timeout">5:00</span> minutes</div>
-                        <small class="send-again" style="color: #596ed7;display: none;cursor: pointer;margin: 10px 0">Resend
+                        <div class="timer-code" style="font-size: 12px; color: #999;margin: 10px 0">It will be sent in
+                            <span class="js-timeout">5:00</span> minutes</div>
+                        <small class="send-again"
+                            style="color: #596ed7;display: none;cursor: pointer;margin: 10px 0">Resend
                             Code</small>
                     </div>
                 </div>
@@ -399,7 +398,7 @@
                                 class: "success",
                             }).appendTo("#errors").text(
                                 "Code has been sent"
-                                );
+                            );
                         }
                     }
                 }
@@ -431,7 +430,11 @@
                                 class: "success",
                             }).appendTo("#errors").text(
                                 "Your information has been successfully registered, we will contact you in a few minutes."
-                                );
+                            );
+
+                            setTimeout(() => {
+                                $('#form-popup').remove();
+                            }, 1000);
                         }
                     }
                 }
