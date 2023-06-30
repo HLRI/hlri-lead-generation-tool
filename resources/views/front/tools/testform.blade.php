@@ -210,7 +210,7 @@
 
 
             <section class="wrap-sign-in" style="display: none">
-                <div style="font-size: 10px;margin-bottom: 10px">a verification code has been sent to your <span style="color: #8667ff; font-weight: bold;" id="current-phone"></span>, please enter the code below</div>
+                <div style="font-size: 13px;margin-bottom: 10px">a verification code has been sent to <span style="color: #8667ff; font-weight: bold;" id="current-phone"></span>, please enter the code below</div>
                 <div class="sign-in-form">
                     <div class="verify-form">
                         <small class="send-mobile fs-10"></small>
