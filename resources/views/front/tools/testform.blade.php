@@ -218,7 +218,7 @@
                         <button class="hlri-popup-button-register" id="btn-verify">Verify</button>
                         <div class="timer-code" style="font-size: 12px; color: #999;margin: 10px 0">It will be sent in <span
                                 class="js-timeout">5:00</span> minutes</div>
-                        <small class="send-again" style="color: #596ed7;display: none;cursor: pointer;">Resend
+                        <small class="send-again" style="color: #596ed7;display: none;cursor: pointer;margin: 10px 0">Resend
                             Code</small>
                     </div>
                 </div>
