@@ -131,7 +131,6 @@ class InfoController extends Controller
         $apisms = 'https://hlrihub.com/api/v1/reSendConfirmCode-sms';
         $body = array(
             "phone" => $request->phone,
-            "code" => $request->code,
         );
         $head = [
             'Authorization' => 'Bearer ' . 'zR9U6n9fBsWw3zmnbGAl4f90ZcmJk2tenaqf11Yf',
@@ -143,7 +142,7 @@ class InfoController extends Controller
             return response()->json([
                 'status' => 'SUCCESS'
             ]);
-        } 
+        }
     }
 
     public function validatePhoneNumber($phoneNumber)
