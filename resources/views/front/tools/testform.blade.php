@@ -434,8 +434,11 @@
                             );
 
                             setTimeout(() => {
+                                var e = document.getElementById("form-popup");
+                                e.style.display = "none"
                                 $('.form-block').css('display', 'block');
                                 $('.wrap-sign-in').css('display', 'none');
+                                $('#errors').text('');
                             }, 1000);
                         }
                     }
