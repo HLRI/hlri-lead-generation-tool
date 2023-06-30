@@ -335,7 +335,7 @@
                             $("<div>", {
                                 class: "success",
                             }).appendTo("#errors").text(
-                                "Your information has been successfully registered, we will contact you in 10 minutes."
+                                "Your information has been successfully registered, we will contact you in 10 minutes"
                             );
                             $("#hlri_name").val("");
                             $("#hlri_email").val("");
@@ -430,7 +430,7 @@
                             $("<div>", {
                                 class: "success",
                             }).appendTo("#errors").text(
-                                "Your information has been successfully registered, we will contact you in a few minutes."
+                                "Your information has been successfully registered, we will contact you in a few minutes"
                             );
 
                             setTimeout(() => {
