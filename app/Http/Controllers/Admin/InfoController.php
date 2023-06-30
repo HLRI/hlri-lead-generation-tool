@@ -127,6 +127,14 @@ class InfoController extends Controller
             return response()->json([
                 'status' => 'SUCCESS'
             ]);
+        }else if ($response->getStatusCode() == 403) {
+            return response()->json([
+                'error' => ['an inquiry has already been submitted with this number']
+            ]);
+        } else if ($response->getStatusCode() == 429) {
+            return response()->json([
+                'error' => ['Too many tries. Please try again in 5 minutes']
+            ]);
         } else {
             return response()->json([
                 'error' => ['Invalid verification code. Please check and try again']
@@ -171,5 +179,5 @@ class InfoController extends Controller
             return false;
         }
     }
-    
+
 }
