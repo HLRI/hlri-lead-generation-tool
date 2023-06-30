@@ -339,7 +339,7 @@
                             );
                             $("#hlri_name").val("");
                             $("#hlri_email").val("");
-                            $("#hlri_phone").val("")
+                            $("#hlri_phone").val("");
                         }
                     }
                 }
@@ -438,7 +438,11 @@
                                 e.style.display = "none"
                                 $('.form-block').css('display', 'block');
                                 $('.wrap-sign-in').css('display', 'none');
-                                $('#errors').text('');
+                                $('#errors').text("");
+                                $("#hlri_name").val("");
+                                $("#hlri_email").val("");
+                                $("#hlri_phone").val("");
+                                $('.verify-code').val("")
                             }, 5000);
                         }
                     }
