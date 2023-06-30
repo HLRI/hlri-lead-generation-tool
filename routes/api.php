@@ -16,6 +16,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix'=>'v1'], function(){
     Route::get('/save-info', [InfoController::class, 'store'])->name('save-info');
     Route::get('/confirmPhone', [InfoController::class, 'confirmPhone'])->name('confirmPhone');
+    Route::get('/resendCode', [InfoController::class, 'resendCode'])->name('resendCode');
     Route::get('/crm-info', [InfoController::class, 'crm'])->name('crm-info');
     Route::get('/record-tools/store', [RecordToolsController::class, 'store'])->name('record-tools.store');
 });

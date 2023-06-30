@@ -378,17 +378,33 @@
         $('.send-again').css('display', 'none');
         $('.js-timeout').text("5:00");
         countdown();
-        // $.ajax({
-        //     type: 'post',
-        //     url: AjaxShahrzad.url,
-        //     data: {
-        //         action: 'send_mobile',
-        //         mobile: $('.mobile').val()
-        //     },
-        //     success: function(response) {
-
-        //     },
-        // });
+        $.ajax({
+            url: "{{ route('resendCode') }}",
+            data: {
+                "phone": phoneUser,
+            },
+            type: "GET",
+            success: function(e) {
+                $("#errors").html("");
+                if (e.error) {
+                    $.each(e.error, function(e, r) {
+                        $("<div>", {
+                            class: "error",
+                        }).appendTo("#errors").text(r)
+                    })
+                } else {
+                    if (e.status == "SUCCESS") {
+                        if (e.status == "SUCCESS") {
+                            $("<div>", {
+                                class: "success",
+                            }).appendTo("#errors").text(
+                                "Code has been sent"
+                                );
+                        }
+                    }
+                }
+            }
+        })
     });
 
     $('#btn-verify').click(function() {
