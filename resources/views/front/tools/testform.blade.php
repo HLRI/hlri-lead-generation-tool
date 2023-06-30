@@ -396,8 +396,7 @@
         $.ajax({
             url: "{{ route('confirmPhone') }}",
             data: {
-                "token": "{{ $token }}",
-                "code": $('#verify-code').val(),
+                "code": $('.verify-code').val(),
                 "phone": phoneUser,
             },
             type: "GET",
