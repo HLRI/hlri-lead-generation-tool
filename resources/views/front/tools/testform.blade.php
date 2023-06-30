@@ -439,7 +439,7 @@
                                 $('.form-block').css('display', 'block');
                                 $('.wrap-sign-in').css('display', 'none');
                                 $('#errors').text('');
-                            }, 1000);
+                            }, 2000);
                         }
                     }
                 }
