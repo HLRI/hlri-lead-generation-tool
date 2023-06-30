@@ -96,7 +96,8 @@
         height: auto;
         background: white;
         box-shadow: 0px 0px 10px 6px #74747438;
-        border-radius: 6px
+        border-radius: 6px;
+        max-width: 460px;
     }
 
     .hlri-close-button {
