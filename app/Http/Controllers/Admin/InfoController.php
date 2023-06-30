@@ -127,7 +127,7 @@ class InfoController extends Controller
             return response()->json([
                 'status' => 'SUCCESS'
             ]);
-        }else if ($response->getStatusCode() == 403) {
+        } else if ($response->getStatusCode() == 403) {
             return response()->json([
                 'error' => ['an inquiry has already been submitted with this number']
             ]);
