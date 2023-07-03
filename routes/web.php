@@ -16,16 +16,10 @@ Route::get('/tracking-code', function () {
 });
 
 Route::get('/check-status', function () {
-    
-    $data = [
-        'name' => 'ali',
-        'olg' => '26'
-    ];
 
-    return json_encode($data);
 
-        // $result = send_sms('+98919181' , 'test', '123456');
-
+        $result = send_sms('+98919181' , 'test', '123456');
+        return $result;
 
         // $ch = 'https://hlrihub.com/api/v1/lead-call';
         // $body = array(
