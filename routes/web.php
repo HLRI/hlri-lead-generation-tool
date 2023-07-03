@@ -21,7 +21,7 @@ Route::get('/check-status', function () {
         $result = send_sms('+98919181', 'test', '123456');
         return $result;
     } catch (\Throwable $th) {
-        return response('The number is not correct', 400);
+        return response('Invalid verification phone', 400);
     }
 
     // $ch = 'https://hlrihub.com/api/v1/lead-call';
